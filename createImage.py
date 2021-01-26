@@ -1,7 +1,7 @@
 from PIL import Image
 
-WIDTH, HEIGHT = 5, 5
-FILENAME = ("teste_pillow.png", "PNG")
+WIDTH, HEIGHT = 15, 15
+FILENAME = ("teste_15.png", "PNG")
 
 pillow_obj = Image.new("RGB", (WIDTH, HEIGHT))
 pixel_set = pillow_obj.load()

@@ -1,7 +1,7 @@
 import struct
 import zlib
 
-f = open('test_xadrez.png', 'rb')
+f = open('teste_15.png', 'rb')
 header = f.read(8)
 #print("%s: %s" % ('Header', header))
 
@@ -36,16 +36,14 @@ compressionMethod = struct.unpack('>B', metadataChunk["data"][10:11])[0]
 filterMethod = struct.unpack('>B', metadataChunk["data"][11:12])[0]
 interlaceMethod = struct.unpack('>B', metadataChunk["data"][12:13])[0]
 
-#Juntar todos os chuncks de IDAT'
-
-idat = chunks[1]
-idatData = idat["data"]
+idatData = b''.join(chunk["data"] for chunk in chunks if chunk["type"] == b'IDAT')
 imageData = zlib.decompress(idatData)
 
 # Tratar aqui o filter type
 
-# Tratar aqui os colortype
-paso = imageWidth * 3
+pixel = 3 if colorType == 2 else 4;
+
+paso = imageWidth * pixel
 
 _i = 0
 for i in range(imageHeigth):
