@@ -8,3 +8,7 @@
   [Tutorial](https://giovannireisnunes.wordpress.com/2020/01/24/criando-imagens-em-python/)
 
 ## xxd de todas as imagens para ver a diferença
+
+## Ler os binarios 
+  [Documentação Strict](https://docs.python.org/3/library/struct.html)
+  
